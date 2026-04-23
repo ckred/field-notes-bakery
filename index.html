@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>field notes bakery</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg: #f7f5f2;
@@ -16,7 +14,8 @@
       --muted: #888;
       --line: #e5e2dd;
       --accent: #6b7762;
-      --max: 720px;
+      --max: 1120px;
+      --text-max: 42rem;
     }
 
     * {
@@ -47,32 +46,38 @@
     .container {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 20px 60px;
+      padding: 28px 20px 72px;
     }
 
     .topnav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 38px;
+      gap: 20px;
+      margin-bottom: 44px;
       font-size: 14px;
     }
 
     .brand-link {
       text-decoration: none;
       letter-spacing: 0.03em;
+      flex-shrink: 0;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 16px;
+      justify-content: flex-end;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
     }
 
     h1, h2, h3 {
@@ -83,13 +88,14 @@
     }
 
     h1 {
-      font-size: clamp(42px, 9vw, 56px);
-      line-height: 0.98;
-      margin-bottom: 12px;
+      font-size: clamp(42px, 8vw, 64px);
+      line-height: 0.96;
+      margin-bottom: 14px;
+      max-width: 10ch;
     }
 
     h2 {
-      font-size: 30px;
+      font-size: clamp(28px, 4vw, 38px);
       margin-bottom: 10px;
     }
 
@@ -113,7 +119,9 @@
     }
 
     .hero {
-      padding-top: 8px;
+      display: grid;
+      gap: 28px;
+      align-items: end;
     }
 
     .hero-copy {
@@ -127,19 +135,29 @@
       margin-top: 24px;
     }
 
+    .hero-image-wrap {
+      margin-top: 6px;
+    }
+
     .section {
-      margin-top: 56px;
+      margin-top: 64px;
     }
 
     .section-tight {
-      margin-top: 36px;
+      margin-top: 40px;
+    }
+
+    .section-copy,
+    .inline-list,
+    .how-copy,
+    .order-copy {
+      max-width: var(--text-max);
     }
 
     .card {
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 20px;
-      margin-top: 15px;
       background: var(--paper);
     }
 
@@ -157,13 +175,19 @@
 
     .cta:hover {
       background: var(--ink);
-      color: white;
+      color: #fff;
     }
 
     .cta.secondary {
       border-color: var(--line);
       color: var(--soft);
       background: var(--paper);
+    }
+
+    .cta.secondary:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: transparent;
     }
 
     .hero-image,
@@ -177,9 +201,58 @@
       object-fit: cover;
     }
 
+    .note-grid,
+    .story-grid,
+    .link-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .note-grid,
+    .story-grid,
+    .link-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .story-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .story-card p {
+      margin-top: 6px;
+    }
+
+    .story-card:hover h3 {
+      color: var(--accent);
+    }
+
+    .inline-list {
+      display: grid;
+      gap: 8px;
+      color: var(--soft);
+    }
+
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.08;
+      color: var(--ink);
+      max-width: 15ch;
+    }
+
+    .order-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
     .embed-card {
       min-height: 520px;
       padding: 12px;
+      margin-top: 24px;
     }
 
     .tally-embed {
@@ -196,71 +269,8 @@
       color: var(--muted);
     }
 
-    .order-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .hero-image,
-    .photo-block img,
-    .story-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      display: block;
-      filter: contrast(95%) brightness(98%);
-    }
-
-    .hero-image-wrap {
-      margin-top: 28px;
-    }
-
-    .note-grid,
-    .story-grid,
-    .link-grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .story-grid,
-    .link-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .story-card {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .story-card p,
-    .link-card p {
-      margin-top: 6px;
-    }
-
-    .story-card:hover h3,
-    .link-card:hover h3 {
-      color: var(--accent);
-    }
-
-    .inline-list {
-      display: grid;
-      gap: 8px;
-      color: var(--soft);
-    }
-
-    .quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
-      line-height: 1.1;
-      color: var(--ink);
-      max-width: 14ch;
-    }
-
     footer {
-      margin-top: 84px;
+      margin-top: 88px;
       font-size: 13px;
       color: var(--muted);
       padding-top: 24px;
@@ -268,35 +278,56 @@
     }
 
     @media (min-width: 760px) {
-      .hero {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 28px;
-        align-items: end;
-      }
-
-      .hero-image-wrap {
-        margin-top: 0;
-      }
-
       .container {
-        padding: 36px 24px 70px;
+        padding: 36px 24px 84px;
       }
 
-      .story-grid {
-        grid-template-columns: 1fr 1fr;
+      .hero {
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 44px;
+        min-height: 60vh;
       }
 
+      .story-grid,
       .link-grid {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .note-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 42px 40px 96px;
+      }
+
+      .topnav {
+        margin-bottom: 56px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+        gap: 64px;
+      }
+
+      .hero-copy {
+        max-width: 34rem;
+      }
+
+      .section {
+        margin-top: 80px;
+      }
+
+      .section-tight {
+        margin-top: 48px;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-
     <div class="topnav">
       <a href="index.html" class="brand-link">field notes bakery</a>
       <div class="nav-links">
@@ -307,81 +338,89 @@
     </div>
 
     <!-- HERO -->
-    <div class="hero">
-      <div class="subtle">handmade macarons</div>
-      <h1>field notes bakery</h1>
-      <p class="hero-copy">
-        Small-batch, seasonal macarons rooted in care, texture, and place.
-        Made with eggs from our chickens and ingredients we prepare ourselves.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#order" class="cta">order a micro-batch →</a>
-        <a href="about.html" class="cta secondary">read our story</a>
+    <section class="hero">
+      <div class="hero-copy-wrap">
+        <div class="subtle">handmade macarons</div>
+        <h1>field notes bakery</h1>
+        <p class="hero-copy">
+          Small-batch, seasonal macarons rooted in care, texture, and place.
+          Made with eggs from our chickens and ingredients we prepare ourselves.
+        </p>
+        <div class="hero-actions">
+          <a href="#order" class="cta">order a micro-batch →</a>
+          <a href="about.html" class="cta secondary">read our story</a>
+        </div>
       </div>
 
       <div class="hero-image-wrap">
-        <img src="images/hero-macarons.jpg" alt="field notes bakery macarons on a table" class="hero-image" />
+        <img
+          src="images/hero-macarons.jpg"
+          alt="field notes bakery macarons on a table"
+          class="hero-image"
+        />
       </div>
-    </div>
+    </section>
 
     <!-- WHAT THIS IS -->
-    <div class="section section-tight">
-      <p>
+    <section class="section section-tight">
+      <p class="section-copy">
         This is not a high-volume bakery.<br><br>
         It’s a slow, evolving kitchen practice — micro-batches, seasonal notes,
         and careful ingredients.<br><br>
         More like field notes than a menu.
       </p>
-    </div>
+    </section>
 
     <!-- STORY LINKS -->
-    <div class="section" id="story">
+    <section class="section" id="story">
       <div class="subtle">follow the story</div>
       <div class="link-grid">
         <a href="about.html" class="card story-card">
           <h3>about the bakery →</h3>
-          <p>The thinking behind the name, the kitchen practice, and why these are made in small notes instead of big collections.</p>
+          <p>
+            The thinking behind the name, the kitchen practice, and why these are
+            made in small notes instead of big collections.
+          </p>
         </a>
 
         <a href="ingredients.html" class="card story-card">
           <h3>ingredients + method →</h3>
-          <p>Eggs from our flock, house-made fillings, seasonal ingredients, and the quiet details that shape each batch.</p>
+          <p>
+            Eggs from our flock, house-made fillings, seasonal ingredients, and
+            the quiet details that shape each batch.
+          </p>
         </a>
       </div>
-    </div>
+    </section>
 
     <!-- PHOTO -->
-    <div class="section">
+    <section class="section">
       <div class="photo-block">
         <img src="images/macs.jpeg" alt="field notes bakery moment" />
       </div>
-    </div>
+    </section>
 
     <!-- FLAVORS -->
-    <div class="section" id="notes">
+    <section class="section" id="notes">
       <div class="subtle">current field notes</div>
-
       <div class="note-grid">
         <div class="card">
           <strong>note no. 3 — pistachio</strong><br>
           silky, candied, nutty finish
         </div>
-
         <div class="card">
           <strong>berry & citrus</strong><br>
           soft and sweet, then tart and fragrant
         </div>
-
         <div class="card">
           <strong>earl grey honey</strong><br>
           floral, rounded, quietly warm
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- INGREDIENT STORY -->
-    <div class="section">
+    <section class="section">
       <div class="subtle">ingredient notes</div>
       <div class="inline-list">
         <div>eggs from our flock</div>
@@ -389,42 +428,50 @@
         <div>small-batch buttercreams</div>
         <div>no artificial colors or flavors</div>
       </div>
-    </div>
+    </section>
 
     <!-- IMAGE STORY STRIP -->
-    <div class="section">
+    <section class="section">
       <div class="story-grid">
         <img src="images/eggs.jpg" alt="fresh eggs for field notes bakery" />
         <img src="images/kitchen.jpg" alt="field notes bakery kitchen process" />
       </div>
-    </div>
+    </section>
 
     <!-- HOW IT WORKS -->
-    <div class="section">
+    <section class="section">
       <div class="subtle">how it works</div>
-      <p>
+      <p class="how-copy">
         1. small batches are released every two weeks<br>
         2. claim a box via email or instagram<br>
         3. local pickup in martinsville, nj
       </p>
-    </div>
+    </section>
 
     <!-- QUOTE -->
-    <div class="section">
-      <div class="quote">Made slowly, released in notes, and meant to feel personal.</div>
-    </div>
+    <section class="section">
+      <div class="quote">
+        Made slowly, released in notes, and meant to feel personal.
+      </div>
+    </section>
 
     <!-- ORDER -->
-    <div class="section" id="order">
+    <section class="section" id="order">
       <h2>order a box</h2>
-      <p>
+      <p class="order-copy">
         For now, orders are limited and released in small batches.<br><br>
-        You can place a request below, or reach out directly if you have a special event, flavor question, or pickup request.
+        You can place a request below, or reach out directly if you have a special
+        event, flavor question, or pickup request.
       </p>
 
       <div class="order-links">
         <a href="mailto:hello@fieldnotesbakery.com" class="cta">email</a>
-        <a href="https://instagram.com/fieldnotesbakery" class="cta secondary" target="_blank" rel="noopener noreferrer">instagram</a>
+        <a
+          href="https://instagram.com/fieldnotesbakery"
+          class="cta secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >instagram</a>
       </div>
 
       <div class="card embed-card">
@@ -437,14 +484,13 @@
           Replace <strong>YOUR-FORM-ID</strong> with your Tally form link ID.
         </div>
       </div>
-    </div>
+    </section>
 
     <footer>
       field notes bakery<br>
       martinsville, new jersey<br>
       small batch · cottage food
     </footer>
-
   </div>
 </body>
 </html>
