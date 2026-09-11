@@ -19,9 +19,13 @@
       --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -114,7 +118,9 @@
       font-weight: 400;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       line-height: 1.02;
@@ -257,7 +263,7 @@
       grid-template-columns: 132px 1fr;
       gap: 22px;
       align-items: center;
-      background: rgba(255,255,255,0.18);
+      background: rgba(255, 255, 255, 0.18);
       min-height: 160px;
     }
 
@@ -310,12 +316,18 @@
       color: var(--muted);
     }
 
-    .bottom-grid {
+    /* ORDER SECTION */
+
+    .order-section {
+      padding-bottom: 42px;
+    }
+
+    .order-top {
       display: grid;
-      grid-template-columns: 0.95fr 0.7fr 1fr;
-      gap: 56px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
       align-items: start;
-      padding-bottom: 28px;
+      margin-bottom: 34px;
     }
 
     .rule-title {
@@ -344,6 +356,7 @@
     .order-copy p {
       font-size: 14px;
       line-height: 1.55;
+      max-width: 430px;
     }
 
     .button-row {
@@ -362,6 +375,12 @@
       background: var(--paper);
       min-width: 100px;
       text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--ink);
+      color: white;
     }
 
     .button.dark {
@@ -369,29 +388,35 @@
       color: white;
     }
 
+    .button.dark:hover {
+      opacity: 0.88;
+    }
+
     .form-card {
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
+      border-radius: 10px;
+      padding: 28px;
       background: var(--paper);
+      width: 100%;
     }
 
     .form-card h3 {
-      font-size: 29px;
-      margin-bottom: 4px;
+      font-size: 34px;
+      margin-bottom: 6px;
     }
 
     .form-card p {
-      font-size: 13px;
-      margin-bottom: 14px;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
 
-    .tally-frame {
-        width: 100%;
-  height: 700px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: white;
+    .form-frame {
+      width: 100%;
+      height: 750px;
+      border: 0;
+      border-radius: 6px;
+      background: white;
+      display: block;
     }
 
     footer {
@@ -444,8 +469,7 @@
 
       .hero,
       .intro-grid,
-      .intention-grid,
-      .bottom-grid {
+      .intention-grid {
         grid-template-columns: 1fr;
         gap: 28px;
       }
@@ -472,6 +496,15 @@
 
       .ingredient-photos {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .order-top {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .form-frame {
+        height: 800px;
       }
 
       .footer-inner {
@@ -538,12 +571,25 @@
       .cta {
         width: 100%;
       }
+
+      .form-card {
+        padding: 18px 12px;
+      }
+
+      .form-card h3 {
+        font-size: 30px;
+      }
+
+      .form-frame {
+        height: 850px;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="page">
+
     <header class="nav">
       <a href="index.html" class="logo">field notes bakery</a>
 
@@ -553,95 +599,237 @@
         <a href="ingredients.html">ingredients</a>
         <a href="#notes">notes</a>
         <a href="#order">contact</a>
-        <a href="https://instagram.com/fieldnotesbakery" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="ig"></span></a>
+
+        <a
+          href="https://instagram.com/fieldnotesbakery"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <span class="ig"></span>
+        </a>
       </nav>
     </header>
 
     <section class="hero">
       <div>
         <div class="eyebrow">handmade macarons</div>
+
         <h1>field notes bakery</h1>
+
         <p>
           Small-batch, seasonal macarons rooted in care, texture, and place.
           Made with eggs from our chickens and ingredients we prepare ourselves.
         </p>
-        <a href="#order" class="cta">order a micro-batch <span>→</span></a>
+
+        <a href="#order" class="cta">
+          order a micro-batch <span>→</span>
+        </a>
       </div>
 
-      <img class="hero-img" src="images/hero-macarons.jpg" alt="assorted field notes bakery macarons on a ceramic plate" />
+      <img
+        class="hero-img"
+        src="images/hero-macarons.jpg"
+        alt="assorted field notes bakery macarons on a ceramic plate"
+      />
     </section>
 
     <section class="section intro-grid">
       <div class="intro-copy">
-        This is not a high-volume bakery.<br><br>
+        This is not a high-volume bakery.
+        <br><br>
+
         It’s a slow, evolving kitchen practice — micro-batches, seasonal notes,
-        and careful ingredients.<br><br>
+        and careful ingredients.
+        <br><br>
+
         More like field notes than a menu.
 
-        <svg class="branch" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M18 64C52 42 86 28 140 14" stroke="#8d887f" stroke-width="2" stroke-linecap="round"/>
-          <path d="M57 40C51 29 48 21 45 12" stroke="#8d887f" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M74 33C67 24 63 18 59 8" stroke="#8d887f" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M93 25C91 15 91 9 92 2" stroke="#8d887f" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M51 44C40 44 31 42 21 37" stroke="#8d887f" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M72 35C61 36 53 35 43 31" stroke="#8d887f" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M98 24C86 27 77 27 68 24" stroke="#8d887f" stroke-width="1.5" stroke-linecap="round"/>
+        <svg
+          class="branch"
+          viewBox="0 0 160 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M18 64C52 42 86 28 140 14"
+            stroke="#8d887f"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M57 40C51 29 48 21 45 12"
+            stroke="#8d887f"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M74 33C67 24 63 18 59 8"
+            stroke="#8d887f"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M93 25C91 15 91 9 92 2"
+            stroke="#8d887f"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M51 44C40 44 31 42 21 37"
+            stroke="#8d887f"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M72 35C61 36 53 35 43 31"
+            stroke="#8d887f"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M98 24C86 27 77 27 68 24"
+            stroke="#8d887f"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
         </svg>
       </div>
 
       <div class="story-cards">
+
         <a href="about.html" class="story-card">
-          <img src="images/our-story-chicken.jpg" alt="a chicken outside near a rustic doorway" />
+          <img
+            src="images/our-story-chicken.jpg"
+            alt="a chicken outside near a rustic doorway"
+          />
+
           <h3>our story</h3>
-          <div class="small"><span>why field notes</span><span>→</span></div>
+
+          <div class="small">
+            <span>why field notes</span>
+            <span>→</span>
+          </div>
         </a>
 
         <a href="ingredients.html" class="story-card">
-          <img src="images/ingredients-eggs.jpg" alt="fresh eggs in a ceramic bowl" />
+          <img
+            src="images/ingredients-eggs.jpg"
+            alt="fresh eggs in a ceramic bowl"
+          />
+
           <h3>ingredients & method</h3>
-          <div class="small"><span>what we use & why</span><span>→</span></div>
+
+          <div class="small">
+            <span>what we use & why</span>
+            <span>→</span>
+          </div>
         </a>
+
       </div>
     </section>
 
     <section class="section" id="notes">
-      <div class="eyebrow flavor-title">current field notes</div>
+      <div class="eyebrow flavor-title">
+        current field notes
+      </div>
 
       <div class="flavors">
+
         <article class="flavor-card">
-          <img src="images/flavor-pistachio.jpg" alt="pistachio macarons with pistachios" />
+          <img
+            src="images/flavor-pistachio.jpg"
+            alt="pistachio macarons with pistachios"
+          />
+
           <div>
             <h3>note no. 3 — pistachio</h3>
-            <p>silky, candied,<br>nutty finish</p>
+
+            <p>
+              silky, candied,
+              <br>
+              nutty finish
+            </p>
           </div>
         </article>
 
         <article class="flavor-card">
-          <img src="images/flavor-berry-citrus.jpg" alt="pink berry citrus macarons with raspberries" />
+          <img
+            src="images/flavor-berry-citrus.jpg"
+            alt="pink berry citrus macarons with raspberries"
+          />
+
           <div>
             <h3>berry & citrus</h3>
-            <p>soft and sweet,<br>then tart and<br>fragrant</p>
+
+            <p>
+              soft and sweet,
+              <br>
+              then tart and
+              <br>
+              fragrant
+            </p>
           </div>
         </article>
 
         <article class="flavor-card">
-          <img src="images/flavor-earl-grey-honey.jpg" alt="earl grey honey macarons with tea leaves" />
+          <img
+            src="images/flavor-earl-grey-honey.jpg"
+            alt="earl grey honey macarons with tea leaves"
+          />
+
           <div>
-            <h3>earl grey<br>honey</h3>
-            <p>floral, rounded,<br>quietly warm</p>
+            <h3>
+              earl grey
+              <br>
+              honey
+            </h3>
+
+            <p>
+              floral, rounded,
+              <br>
+              quietly warm
+            </p>
           </div>
         </article>
+
       </div>
     </section>
 
     <section class="section intention-grid">
+
       <div>
-        <div class="eyebrow">made with intention</div>
+        <div class="eyebrow">
+          made with intention
+        </div>
+
         <div class="ingredient-photos">
-          <img src="images/eggs.jpg" alt="eggs in straw" />
-          <img src="images/fruit-herbs.jpg" alt="dried fruit and herbs in a bowl" />
-          <img src="images/buttercream.jpg" alt="whipped buttercream in a mixing bowl" />
-          <img src="images/boxed-macarons.jpg" alt="boxed macarons" />
+          <img
+            src="images/eggs.jpg"
+            alt="eggs in straw"
+          />
+
+          <img
+            src="images/fruit-herbs.jpg"
+            alt="dried fruit and herbs in a bowl"
+          />
+
+          <img
+            src="images/buttercream.jpg"
+            alt="whipped buttercream in a mixing bowl"
+          />
+
+          <img
+            src="images/boxed-macarons.jpg"
+            alt="boxed macarons"
+          />
         </div>
       </div>
 
@@ -651,57 +839,113 @@
         <div>small-batch buttercreams</div>
         <div>no artificial colors or flavors</div>
       </div>
+
     </section>
 
-    <section class="section bottom-grid" id="order">
-      <div>
-        <div class="rule-title">how it works</div>
-        <div class="steps">
-          <div class="step"><span>01</span><span>small batches are released every two weeks</span></div>
-          <div class="step"><span>02</span><span>claim a box via email, instagram, or form</span></div>
-          <div class="step"><span>03</span><span>local pickup in martinsville, nj</span></div>
-        </div>
-      </div>
+    <section class="section order-section" id="order">
 
-      <div class="order-copy">
-        <div class="rule-title">order a box</div>
-        <p>
-          Orders are limited and released in small batches.<br>
-          If you'd like one, reach out or fill out the form below to join the next release.
-        </p>
-        <div class="button-row">
-          <a class="button dark" href="mailto:hello@fieldnotesbakery.com">email us</a>
-          <a class="button" href="https://instagram.com/fieldnotesbakery" target="_blank" rel="noopener noreferrer">instagram</a>
+      <div class="order-top">
+
+        <div>
+          <div class="rule-title">
+            how it works
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <span>01</span>
+              <span>small batches are released every two weeks</span>
+            </div>
+
+            <div class="step">
+              <span>02</span>
+              <span>claim a box via email, instagram, or form</span>
+            </div>
+
+            <div class="step">
+              <span>03</span>
+              <span>local pickup in martinsville, nj</span>
+            </div>
+          </div>
         </div>
+
+        <div class="order-copy">
+          <div class="rule-title">
+            order a box
+          </div>
+
+          <p>
+            Orders are limited and released in small batches.
+            <br>
+            If you'd like one, reach out or fill out the form below
+            to join the next release.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button dark"
+              href="mailto:hello@fieldnotesbakery.com"
+            >
+              email us
+            </a>
+
+            <a
+              class="button"
+              href="https://instagram.com/fieldnotesbakery"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              instagram
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <div class="form-card">
+
         <h3>place an order</h3>
-        <p>Tell us what you're looking for.</p>
+
+        <p>
+          Tell us what you're looking for and we'll be in touch.
+        </p>
 
         <iframe
-          class="tally-frame"
+          class="form-frame"
           src="https://form.jotform.com/262508401891053"
           title="Field Notes Bakery order form"
           frameborder="0"
-          scrolling="yes">
+          scrolling="yes"
+          allow="geolocation; microphone; camera; fullscreen"
+        >
         </iframe>
+
       </div>
+
     </section>
 
     <footer>
       <div class="footer-inner">
+
         <div>
-          field notes bakery<br>
-          martinsville, new jersey<br>
+          field notes bakery
+          <br>
+          martinsville, new jersey
+          <br>
           small batch · cottage food
         </div>
 
-        <div class="footer-mark">❧</div>
+        <div class="footer-mark">
+          ❧
+        </div>
 
-        <div class="copyright">© 2026 field notes bakery</div>
+        <div class="copyright">
+          © 2026 field notes bakery
+        </div>
+
       </div>
     </footer>
+
   </main>
 </body>
 </html>
