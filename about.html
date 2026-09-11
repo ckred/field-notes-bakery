@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>our story | field notes bakery</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --ink: #252521;
+      --soft: #4b4a45;
+      --muted: #8d887f;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px 0;
+    }
+
+    /* NAVIGATION */
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 65px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+    }
+
+    .nav-links a.active {
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .ig {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--ink);
+      border-radius: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .ig::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+    }
+
+    .ig::after {
+      content: '';
+      width: 3px;
+      height: 3px;
+      background: var(--ink);
+      border-radius: 50%;
+      position: absolute;
+      top: 4px;
+      right: 4px;
+    }
+
+    /* TYPOGRAPHY */
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 11px;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    h1 {
+      font-size: clamp(58px, 6vw, 78px);
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: 38px;
+    }
+
+    p {
+      color: var(--soft);
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 16px;
+    }
+
+    /* FIRST STORY SECTION */
+
+    .story-opening {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 75px;
+      align-items: start;
+      margin-bottom: 80px;
+    }
+
+    .story-copy {
+      max-width: 500px;
+    }
+
+    .story-image img {
+      aspect-ratio: 1 / 1.08;
+      border-radius: 5px;
+    }
+
+    .image-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 18px;
+      text-align: right;
+      margin-top: 12px;
+    }
+
+    .aside {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--soft);
+      margin-top: 24px;
+    }
+
+    /* SECOND STORY SECTION */
+
+    .story-shift {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+      margin-bottom: 65px;
+    }
+
+    .story-shift-image img {
+      aspect-ratio: 1.05 / 1;
+      border-radius: 5px;
+    }
+
+    .story-shift-copy {
+      max-width: 490px;
+    }
+
+    .story-shift-copy .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .rhythm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      line-height: 1.45;
+      color: var(--ink);
+      margin: 20px 0;
+    }
+
+    /* FIELD NOTE IMAGES */
+
+    .moments {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin: 25px 0 90px;
+    }
+
+    .moment img {
+      aspect-ratio: 1.3 / 1;
+      border-radius: 4px;
+    }
+
+    .moment p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      text-align: center;
+      line-height: 1.4;
+      margin-top: 12px;
+      color: var(--soft);
+    }
+
+    /* CLOSING */
+
+    .closing {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 100px;
+    }
+
+    .closing .eyebrow {
+      margin-bottom: 22px;
+    }
+
+    .closing h2 {
+      font-size: clamp(38px, 5vw, 54px);
+      margin-bottom: 22px;
+    }
+
+    .closing p {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .branch {
+      width: 90px;
+      margin: 35px auto 0;
+      opacity: 0.55;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0 40px;
+      text-align: center;
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 920px) {
+
+      .story-opening,
+      .story-shift {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .story-copy,
+      .story-shift-copy {
+        max-width: 100%;
+      }
+
+      .moments {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 17px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 560px) {
+
+      .page {
+        padding: 22px 18px 0;
+      }
+
+      .nav {
+        display: block;
+        margin-bottom: 45px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links {
+        margin-top: 14px;
+        justify-content: flex-start;
+      }
+
+      .nav-links a:nth-child(2),
+      .nav-links a:nth-child(3) {
+        display: none;
+      }
+
+      h1 {
+        font-size: 54px;
+      }
+
+      .story-opening,
+      .story-shift {
+        margin-bottom: 55px;
+      }
+
+      .moments {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 65px;
+      }
+
+      .moment p {
+        font-size: 15px;
+      }
+
+      .closing {
+        padding-bottom: 65px;
+      }
+
+      .closing p {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <!-- NAVIGATION -->
+
+    <header class="nav">
+
+      <a href="index.html" class="logo">
+        field notes bakery
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+
+        <a href="index.html">home</a>
+
+        <a href="about.html" class="active">
+          about
+        </a>
+
+        <a href="ingredients.html">
+          ingredients
+        </a>
+
+        <a href="index.html#notes">
+          notes
+        </a>
+
+        <a href="index.html#order">
+          contact
+        </a>
+
+        <a
+          href="https://instagram.com/fieldnotesbakery"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <span class="ig"></span>
+        </a>
+
+      </nav>
+
+    </header>
+
+
+    <!-- STORY: THE BEGINNING -->
+
+    <section class="story-opening">
+
+      <div class="story-copy">
+
+        <div class="eyebrow">
+          our story
+        </div>
+
+        <h1>
+          it started with<br>
+          a macaron
+        </h1>
+
+        <p>
+          I started making macarons back in 2013.
+        </p>
+
+        <p>
+          Mostly out of curiosity. I’d tried one for the first time and loved it.
+          Back then, it felt like I only ever saw the same few flavors — and there
+          seemed to be so much more potential.
+        </p>
+
+        <p>
+          So I started experimenting.
+        </p>
+
+        <p>
+          Partly because I wanted to see if I could figure them out. And I did.
+        </p>
+
+        <p>
+          There was something like a secret superpower in being able to make these
+          rare little treats for friends and colleagues. I’d bring them to a family
+          Christmas celebration or a birthday party. I even made a great first
+          impression bringing them when I met my in-laws for the first time.
+        </p>
+
+        <div class="aside">
+          Been downhill ever since… 😂
+        </div>
+
+      </div>
+
+
+      <div class="story-image">
+
+        <!-- REPLACE WITH YOUR OWN IMAGE -->
+        <img
+          src="images/story-chicken.jpg"
+          alt="chicken in the garden"
+        >
+
+        <div class="image-note">
+          where it all began
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STORY: SOMETHING SHIFTED -->
+
+    <section class="story-shift">
+
+      <div class="story-shift-image">
+
+        <!-- REPLACE WITH YOUR OWN IMAGE -->
+        <img
+          src="images/story-macarons.jpg"
+          alt="field notes bakery macarons"
+        >
+
+      </div>
+
+
+      <div class="story-shift-copy">
+
+        <div class="eyebrow">
+          then something shifted
+        </div>
+
+        <p>
+          For a long time, that’s all it was.
+        </p>
+
+        <p>
+          A half-relationship with baking that seemed to start from scratch every
+          time I had a new oven — or it had simply been a few months since my
+          last bake.
+        </p>
+
+        <p>
+          Sometime last year, I wondered what would happen if I took it one step
+          more seriously.
+        </p>
+
+        <div class="rhythm">
+          Baked at least once every two weeks.<br>
+          Took notes.<br>
+          Paid attention.
+        </div>
+
+        <p>
+          Around the same time, we’d been cultivating a garden filled with
+          different herbs and fruits, and started freeze-drying our own and
+          locally grown produce.
+        </p>
+
+        <p>
+          Suddenly, there were little curiosities and moments of inspiration
+          everywhere.
+        </p>
+
+        <p>
+          I found myself writing those little moments down.
+          Eventually, they’d turn into flavors.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- LITTLE FIELD NOTES -->
+
+    <section class="moments">
+
+      <div class="moment">
+
+        <!-- REPLACE WITH YOUR OWN IMAGE -->
+        <img
+          src="images/story-kalamansi.jpg"
+          alt="kalamansi growing in the garden"
+        >
+
+        <p>
+          Kalamansi growing<br>
+          in the garden.
+        </p>
+
+      </div>
+
+
+      <div class="moment">
+
+        <!-- REPLACE WITH YOUR OWN IMAGE -->
+        <img
+          src="images/story-eggs.jpg"
+          alt="fresh eggs from our chickens"
+        >
+
+        <p>
+          Collecting eggs<br>
+          from our chickens.
+        </p>
+
+      </div>
+
+
+      <div class="moment">
+
+        <!-- REPLACE WITH YOUR OWN IMAGE -->
+        <img
+          src="images/story-strawberries.jpg"
+          alt="fresh strawberries"
+        >
+
+        <p>
+          Fresh strawberries we picked<br>
+          from a local farm.
+        </p>
+
+      </div>
+
+
+      <div class="moment">
+
+        <!-- REPLACE WITH YOUR OWN IMAGE -->
+        <img
+          src="images/story-jasmine.jpg"
+          alt="jasmine flowers"
+        >
+
+        <p>
+          The smell of jasmine and<br>
+          honeysuckle from a recent trip.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLOSING -->
+
+    <section class="closing">
+
+      <div class="eyebrow">
+        field notes
+      </div>
+
+      <h2>
+        I think that’s what Field Notes is.
+      </h2>
+
+      <p>
+        Just paying attention.<br>
+        Making something with my hands.<br>
+        And sharing the parts that can bring a little joy to other people.
+      </p>
+
+
+      <!-- SAME BOTANICAL DETAIL AS HOMEPAGE -->
+
+      <svg
+        class="branch"
+        viewBox="0 0 160 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M18 64C52 42 86 28 140 14"
+          stroke="#8d887f"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M57 40C51 29 48 21 45 12"
+          stroke="#8d887f"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M74 33C67 24 63 18 59 8"
+          stroke="#8d887f"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M93 25C91 15 91 9 92 2"
+          stroke="#8d887f"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M51 44C40 44 31 42 21 37"
+          stroke="#8d887f"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+
+      </svg>
+
+    </section>
+
+
+    <footer>
+      © 2026 field notes bakery
+    </footer>
+
+  </main>
+
+</body>
+</html>
