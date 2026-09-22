@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
     rel="stylesheet"
   >
 
@@ -25,18 +25,13 @@
       --paper: #f7f5ef;
       --paper-deep: #eeebe2;
       --ink: #292a25;
-      --soft-ink: #66675f;
+      --soft-ink: #65665e;
       --faint-ink: #8b8b82;
       --line: #d8d4ca;
       --green: #626c57;
 
       --serif: "EB Garamond", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
 
-      /*
-        Desktop artwork occupies about a quarter
-        of the screen, similar to the preview composition.
-      */
       --art-width: clamp(300px, 26vw, 430px);
     }
 
@@ -59,16 +54,15 @@
       background: var(--paper);
       color: var(--ink);
 
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.65;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.6;
 
       -webkit-font-smoothing: antialiased;
     }
 
     a {
       color: inherit;
-
       text-decoration-thickness: 1px;
       text-underline-offset: 4px;
     }
@@ -103,14 +97,34 @@
       display: block;
 
       object-fit: cover;
-
-      /*
-        Adjust this percentage to move horizontally
-        across Nate's original drawing.
-      */
       object-position: 52% center;
 
-      opacity: 0.86;
+      opacity: 0.88;
+    }
+
+
+    /* Small gallery-style credit over the artwork */
+
+    .art-credit {
+      position: absolute;
+
+      left: 20px;
+      bottom: 20px;
+
+      padding: 7px 11px 6px;
+
+      background: rgba(247, 245, 239, 0.92);
+
+      border: 1px solid rgba(41, 42, 37, 0.16);
+
+      color: var(--soft-ink);
+
+      font-size: 0.72rem;
+      line-height: 1.2;
+
+      letter-spacing: 0.025em;
+
+      z-index: 2;
     }
 
 
@@ -120,13 +134,11 @@
 
     .content {
       margin-left: var(--art-width);
-
       min-height: 100vh;
     }
 
     .page {
       width: min(100% - 96px, 820px);
-
       margin: 0 auto;
     }
 
@@ -140,37 +152,35 @@
     }
 
     .eyebrow {
-      margin: 0 0 18px;
+      margin: 0 0 17px;
 
-      color: var(--soft-ink);
+      color: var(--green);
 
-      font-size: 0.7rem;
+      font-size: 0.74rem;
       font-weight: 500;
 
-      letter-spacing: 0.18em;
+      letter-spacing: 0.13em;
 
       text-transform: uppercase;
     }
 
     h1,
-    h2 {
-      font-family: var(--serif);
+    h2,
+    h3 {
+      margin-top: 0;
 
+      font-family: var(--serif);
       font-weight: 400;
     }
 
     h1 {
-      margin: 0;
+      margin-bottom: 0;
 
-      /*
-        Keep the bakery name on one line
-        whenever the screen allows it.
-      */
-      font-size: clamp(3rem, 5.2vw, 5rem);
+      font-size: clamp(3.4rem, 5.3vw, 5.3rem);
 
-      line-height: 0.98;
+      line-height: 0.94;
 
-      letter-spacing: -0.04em;
+      letter-spacing: -0.035em;
 
       white-space: nowrap;
     }
@@ -182,9 +192,7 @@
 
       color: var(--soft-ink);
 
-      font-family: var(--serif);
-
-      font-size: 1.27rem;
+      font-size: 1.18rem;
       line-height: 1.55;
     }
 
@@ -210,7 +218,6 @@
       display: block;
 
       object-fit: cover;
-
       object-position: center 48%;
     }
 
@@ -220,26 +227,13 @@
        ================================================== */
 
     section {
-      padding: 72px 0;
+      padding: 70px 0;
 
       border-bottom: 1px solid var(--line);
     }
 
-    .section-label {
-      margin: 0 0 22px;
-
-      color: var(--green);
-
-      font-size: 0.69rem;
-      font-weight: 500;
-
-      letter-spacing: 0.19em;
-
-      text-transform: uppercase;
-    }
-
     h2 {
-      margin: 0;
+      margin-bottom: 0;
 
       font-size: clamp(2.2rem, 4vw, 3.4rem);
 
@@ -248,23 +242,43 @@
       letter-spacing: -0.02em;
     }
 
+    h3 {
+      margin-bottom: 10px;
+
+      color: var(--green);
+
+      font-size: 1.05rem;
+      font-weight: 500;
+
+      letter-spacing: 0.04em;
+    }
+
 
     /* ==================================================
        OCTOBER FIELD NOTE
        ================================================== */
 
+    #current-note > p:first-of-type {
+      margin: 0;
+
+      color: var(--ink);
+
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+
     .drop-location {
-      margin: 12px 0 42px;
+      margin: 3px 0 38px !important;
 
-      color: var(--soft-ink);
+      color: var(--faint-ink) !important;
 
-      font-size: 0.9rem;
+      font-size: 0.9rem !important;
     }
 
     .flavors {
       display: grid;
 
-      margin: 0 0 40px;
+      margin: 0 0 38px;
     }
 
     .flavor {
@@ -284,24 +298,28 @@
     }
 
     .flavor-name {
-      font-family: var(--serif);
+      color: var(--ink);
 
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      line-height: 1.3;
     }
 
     .flavor-note {
+      align-self: center;
+
       color: var(--soft-ink);
 
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      line-height: 1.35;
     }
 
     .box-details {
       margin: 0;
 
-      font-family: var(--serif);
+      color: var(--ink);
 
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.16rem;
+      line-height: 1.5;
     }
 
 
@@ -312,22 +330,23 @@
     .button {
       display: inline-block;
 
-      margin-top: 26px;
+      margin-top: 24px;
 
-      padding: 12px 19px;
+      padding: 10px 18px 11px;
 
       border: 1px solid var(--ink);
 
       background: var(--ink);
       color: var(--paper);
 
-      font-size: 0.77rem;
+      font-family: var(--serif);
+
+      font-size: 0.88rem;
       font-weight: 500;
 
-      letter-spacing: 0.07em;
+      letter-spacing: 0.06em;
 
       text-decoration: none;
-      text-transform: uppercase;
 
       transition:
         background 160ms ease,
@@ -336,18 +355,18 @@
 
     .button:hover {
       background: transparent;
-
       color: var(--ink);
     }
 
     .next-note {
       max-width: 540px;
 
-      margin: 30px 0 0;
+      margin: 28px 0 0 !important;
 
-      color: var(--faint-ink);
+      color: var(--faint-ink) !important;
 
-      font-size: 0.83rem;
+      font-size: 0.86rem !important;
+      line-height: 1.5;
     }
 
 
@@ -360,40 +379,31 @@
     }
 
     .story p {
-      margin: 0 0 22px;
+      margin: 0 0 24px;
 
       color: var(--soft-ink);
 
-      font-family: var(--serif);
-
-      font-size: 1.2rem;
+      font-size: 1.12rem;
       line-height: 1.65;
     }
 
-    .story .artist-credit {
-      margin-top: 34px;
+    .story p:last-child {
       margin-bottom: 0;
-
-      font-family: var(--sans);
-
-      font-size: 0.78rem;
-
-      letter-spacing: 0.02em;
     }
 
 
     /* ==================================================
-       CUSTOM ORDER — intentionally tiny
+       CUSTOM ORDER
        ================================================== */
 
     .custom-order {
-      padding: 31px 0;
+      padding: 28px 0;
 
       border-bottom: 1px solid var(--line);
 
       color: var(--soft-ink);
 
-      font-size: 0.82rem;
+      font-size: 0.9rem;
     }
 
     .custom-order p {
@@ -410,12 +420,12 @@
        ================================================== */
 
     footer {
-      padding: 38px 0 68px;
+      padding: 36px 0 68px;
 
       color: var(--faint-ink);
 
-      font-size: 0.76rem;
-      line-height: 1.9;
+      font-size: 0.8rem;
+      line-height: 1.65;
     }
 
     .footer-row {
@@ -446,7 +456,7 @@
       }
 
       h1 {
-        font-size: clamp(2.8rem, 5.3vw, 4rem);
+        font-size: clamp(2.9rem, 5.3vw, 4.2rem);
       }
 
     }
@@ -454,9 +464,6 @@
 
     /* ==================================================
        MOBILE
-
-       Instead of losing Nate's artwork entirely,
-       it becomes a horizontal opening frame.
        ================================================== */
 
     @media (max-width: 760px) {
@@ -465,10 +472,10 @@
         position: relative;
 
         width: 100%;
-        height: 26vh;
+        height: 27vh;
 
-        min-height: 180px;
-        max-height: 250px;
+        min-height: 190px;
+        max-height: 260px;
 
         border-right: 0;
         border-bottom: 1px solid var(--line);
@@ -479,12 +486,16 @@
         height: 100%;
 
         object-fit: cover;
-
-        /*
-          Wide crop of the same drawing on mobile.
-          Adjust if another portion is preferable.
-        */
         object-position: center 42%;
+      }
+
+      .art-credit {
+        left: 14px;
+        bottom: 13px;
+
+        padding: 6px 9px;
+
+        font-size: 0.68rem;
       }
 
       .content {
@@ -496,22 +507,19 @@
       }
 
       header {
-        padding: 54px 0 44px;
+        padding: 52px 0 43px;
       }
 
       h1 {
-        font-size: clamp(2.8rem, 13vw, 4.2rem);
+        font-size: clamp(3rem, 13vw, 4.2rem);
 
-        /*
-          On narrow phones the title is allowed
-          to wrap naturally rather than shrinking
-          into something tiny.
-        */
+        line-height: 0.95;
+
         white-space: normal;
       }
 
       .intro {
-        font-size: 1.17rem;
+        font-size: 1.1rem;
       }
 
       .hero-image {
@@ -519,7 +527,7 @@
       }
 
       section {
-        padding: 56px 0;
+        padding: 54px 0;
       }
 
       .flavor {
@@ -528,8 +536,16 @@
         gap: 2px;
       }
 
+      .flavor-name {
+        font-size: 1.2rem;
+      }
+
+      .flavor-note {
+        font-size: 0.9rem;
+      }
+
       .custom-order {
-        padding: 27px 0;
+        padding: 25px 0;
       }
 
       .footer-row {
@@ -553,12 +569,10 @@
 
       h1 {
         font-size: 3rem;
-
-        line-height: 0.96;
       }
 
       .art-rail {
-        height: 190px;
+        height: 200px;
       }
 
     }
@@ -571,15 +585,19 @@
 
 
   <!-- ==================================================
-       NATE'S FIXED CHICKEN DRAWING
+       NATE'S CHICKEN DRAWING
        ================================================== -->
 
-  <aside class="art-rail" aria-hidden="true">
+  <aside class="art-rail">
 
     <img
       src="https://raw.githubusercontent.com/ckred/field-notes-bakery/refs/heads/main/images/nate-chickens.png"
-      alt=""
+      alt="Original chicken illustration by Nathan Yuhas"
     >
+
+    <div class="art-credit">
+      original artwork · Nathan Yuhas
+    </div>
 
   </aside>
 
@@ -602,7 +620,7 @@
         </p>
 
         <h1>
-          field notes <br>bakery
+          field notes bakery
         </h1>
 
         <p class="intro">
@@ -646,7 +664,6 @@
 
         <div class="flavors">
 
-
           <div class="flavor">
 
             <div class="flavor-name">
@@ -680,11 +697,10 @@
             </div>
 
             <div class="flavor-note">
-              rich  · nutty · savory-sweet
+              rich · nutty · savory-sweet
             </div>
 
           </div>
-
 
         </div>
 
@@ -733,19 +749,13 @@
             Field Notes is a tiny home bakery in Martinsville,
             New Jersey. I make macarons slowly and by hand,
             using eggs from our chickens, fruits and flowers
-            from our garden, and the best ingredients I can find. 
-          </p>
-          <p>  
-            I like to be intentional with the energy that goes into 
-            creating and enjoying food, so I practice an intention 
-            setting with each batch of macarons, wishing care and 
-            wellbeing for each person who receives them.
-            
+            from our garden, and the best ingredients I can find.
           </p>
 
-
-          <p class="artist-credit">
-            Original artwork by Nathan Yuhas.
+          <p>
+            I care about the energy that goes into making and sharing
+            food. With each batch, I take a moment to set an intention
+            for the care and wellbeing of the people who will receive it.
           </p>
 
         </div>
@@ -777,21 +787,16 @@
 
         <div class="footer-row">
 
-
           <div>
-
             field notes bakery<br>
-
             martinsville, new jersey<br>
-
             NJ Cottage Food Operator #7603220
-
           </div>
 
 
           <div class="footer-links">
 
-            <a href="YOUR-INSTAGRAM-LINK">
+            <a href="https://www.instagram.com/fieldnotesbakery">
               instagram
             </a>
 
@@ -812,7 +817,6 @@
             </a>
 
           </div>
-
 
         </div>
 
