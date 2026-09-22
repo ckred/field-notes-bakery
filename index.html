@@ -8,10 +8,9 @@
 
   <meta
     name="description"
-    content="Small-batch macarons made by hand in Martinsville, New Jersey."
+    content="Small-batch macarons created with care by Caryl Yuhas in Martinsville, New Jersey."
   >
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -34,7 +33,11 @@
       --serif: "EB Garamond", Georgia, serif;
       --sans: "DM Sans", Arial, sans-serif;
 
-      --art-width: 280px;
+      /*
+        Desktop artwork occupies about a quarter
+        of the screen, similar to the preview composition.
+      */
+      --art-width: clamp(300px, 26vw, 430px);
     }
 
 
@@ -52,30 +55,32 @@
 
     body {
       margin: 0;
+
       background: var(--paper);
       color: var(--ink);
+
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.65;
+
       -webkit-font-smoothing: antialiased;
     }
 
     a {
       color: inherit;
+
       text-decoration-thickness: 1px;
       text-underline-offset: 4px;
     }
 
 
     /* ==================================================
-       FIXED ARTWORK
-
-       Nate's chicken drawing stays fixed while
-       the page content scrolls.
+       FIXED LEFT ARTWORK
        ================================================== */
 
     .art-rail {
       position: fixed;
+
       top: 0;
       left: 0;
 
@@ -84,7 +89,8 @@
 
       overflow: hidden;
 
-      background: #efede5;
+      background: var(--paper-deep);
+
       border-right: 1px solid var(--line);
 
       z-index: 1;
@@ -94,36 +100,33 @@
       width: 100%;
       height: 100%;
 
+      display: block;
+
       object-fit: cover;
 
       /*
-        Adjust this if you want a different part
-        of Nate's drawing visible.
+        Adjust this percentage to move horizontally
+        across Nate's original drawing.
       */
       object-position: 52% center;
 
-      display: block;
-
-      /*
-        Keeps the drawing quiet against the page.
-        Remove opacity if you want the original
-        artwork at full strength.
-      */
-      opacity: 0.82;
+      opacity: 0.86;
     }
 
 
     /* ==================================================
-       MAIN PAGE
+       SCROLLING CONTENT
        ================================================== */
 
     .content {
       margin-left: var(--art-width);
+
       min-height: 100vh;
     }
 
     .page {
-      width: min(100% - 80px, 760px);
+      width: min(100% - 96px, 820px);
+
       margin: 0 auto;
     }
 
@@ -133,7 +136,7 @@
        ================================================== */
 
     header {
-      padding: 90px 0 64px;
+      padding: 88px 0 58px;
     }
 
     .eyebrow {
@@ -141,38 +144,48 @@
 
       color: var(--soft-ink);
 
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 500;
 
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
     }
 
     h1,
     h2 {
       font-family: var(--serif);
+
       font-weight: 400;
     }
 
     h1 {
       margin: 0;
 
-      font-size: clamp(3.2rem, 7vw, 5.4rem);
-      line-height: 0.95;
+      /*
+        Keep the bakery name on one line
+        whenever the screen allows it.
+      */
+      font-size: clamp(3rem, 5.2vw, 5rem);
 
-      letter-spacing: -0.035em;
+      line-height: 0.98;
+
+      letter-spacing: -0.04em;
+
+      white-space: nowrap;
     }
 
     .intro {
-      max-width: 540px;
+      max-width: 650px;
 
-      margin: 28px 0 0;
+      margin: 27px 0 0;
 
       color: var(--soft-ink);
 
       font-family: var(--serif);
-      font-size: 1.35rem;
-      line-height: 1.5;
+
+      font-size: 1.27rem;
+      line-height: 1.55;
     }
 
 
@@ -183,7 +196,7 @@
     .hero-image {
       width: 100%;
 
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
 
       overflow: hidden;
 
@@ -198,10 +211,6 @@
 
       object-fit: cover;
 
-      /*
-        Change this percentage if you want
-        to shift the crop up or down.
-      */
       object-position: center 48%;
     }
 
@@ -211,7 +220,7 @@
        ================================================== */
 
     section {
-      padding: 76px 0;
+      padding: 72px 0;
 
       border-bottom: 1px solid var(--line);
     }
@@ -221,17 +230,19 @@
 
       color: var(--green);
 
-      font-size: 0.7rem;
+      font-size: 0.69rem;
       font-weight: 500;
 
       letter-spacing: 0.19em;
+
       text-transform: uppercase;
     }
 
     h2 {
       margin: 0;
 
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+
       line-height: 1.05;
 
       letter-spacing: -0.02em;
@@ -274,6 +285,7 @@
 
     .flavor-name {
       font-family: var(--serif);
+
       font-size: 1.3rem;
     }
 
@@ -287,8 +299,8 @@
       margin: 0;
 
       font-family: var(--serif);
-      font-size: 1.25rem;
 
+      font-size: 1.25rem;
       line-height: 1.6;
     }
 
@@ -309,7 +321,7 @@
       background: var(--ink);
       color: var(--paper);
 
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       font-weight: 500;
 
       letter-spacing: 0.07em;
@@ -324,11 +336,12 @@
 
     .button:hover {
       background: transparent;
+
       color: var(--ink);
     }
 
     .next-note {
-      max-width: 520px;
+      max-width: 540px;
 
       margin: 30px 0 0;
 
@@ -343,7 +356,7 @@
        ================================================== */
 
     .story {
-      max-width: 620px;
+      max-width: 640px;
     }
 
     .story p {
@@ -352,8 +365,8 @@
       color: var(--soft-ink);
 
       font-family: var(--serif);
-      font-size: 1.2rem;
 
+      font-size: 1.2rem;
       line-height: 1.65;
     }
 
@@ -362,6 +375,7 @@
       margin-bottom: 0;
 
       font-family: var(--sans);
+
       font-size: 0.78rem;
 
       letter-spacing: 0.02em;
@@ -369,33 +383,24 @@
 
 
     /* ==================================================
-       CUSTOM ORDERS
+       CUSTOM ORDER — intentionally tiny
        ================================================== */
 
-    .custom {
-      display: grid;
+    .custom-order {
+      padding: 31px 0;
 
-      grid-template-columns: 1fr 1.3fr;
-
-      gap: 48px;
-
-      align-items: start;
-    }
-
-    .custom p {
-      margin: 4px 0 0;
+      border-bottom: 1px solid var(--line);
 
       color: var(--soft-ink);
 
-      font-size: 0.9rem;
-      line-height: 1.7;
+      font-size: 0.82rem;
     }
 
-    .email {
-      display: inline-block;
+    .custom-order p {
+      margin: 0;
+    }
 
-      margin-top: 15px;
-
+    .custom-order a {
       color: var(--ink);
     }
 
@@ -405,7 +410,7 @@
        ================================================== */
 
     footer {
-      padding: 42px 0 70px;
+      padding: 38px 0 68px;
 
       color: var(--faint-ink);
 
@@ -427,20 +432,21 @@
 
 
     /* ==================================================
-       TABLET
-
-       Make the artwork rail narrower rather than
-       letting it crowd the content.
+       MEDIUM DESKTOP / TABLET
        ================================================== */
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1150px) {
 
       :root {
-        --art-width: 210px;
+        --art-width: 28vw;
       }
 
       .page {
-        width: min(100% - 60px, 700px);
+        width: min(100% - 56px, 720px);
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 5.3vw, 4rem);
       }
 
     }
@@ -449,13 +455,36 @@
     /* ==================================================
        MOBILE
 
-       The fixed illustration disappears completely.
+       Instead of losing Nate's artwork entirely,
+       it becomes a horizontal opening frame.
        ================================================== */
 
     @media (max-width: 760px) {
 
       .art-rail {
-        display: none;
+        position: relative;
+
+        width: 100%;
+        height: 26vh;
+
+        min-height: 180px;
+        max-height: 250px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .art-rail img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        /*
+          Wide crop of the same drawing on mobile.
+          Adjust if another portion is preferable.
+        */
+        object-position: center 42%;
       }
 
       .content {
@@ -463,19 +492,34 @@
       }
 
       .page {
-        width: min(100% - 32px, 760px);
+        width: min(100% - 34px, 760px);
       }
 
       header {
-        padding: 68px 0 48px;
+        padding: 54px 0 44px;
       }
 
-      section {
-        padding: 58px 0;
+      h1 {
+        font-size: clamp(2.8rem, 13vw, 4.2rem);
+
+        /*
+          On narrow phones the title is allowed
+          to wrap naturally rather than shrinking
+          into something tiny.
+        */
+        white-space: normal;
+      }
+
+      .intro {
+        font-size: 1.17rem;
       }
 
       .hero-image {
         aspect-ratio: 4 / 3;
+      }
+
+      section {
+        padding: 56px 0;
       }
 
       .flavor {
@@ -484,10 +528,8 @@
         gap: 2px;
       }
 
-      .custom {
-        grid-template-columns: 1fr;
-
-        gap: 20px;
+      .custom-order {
+        padding: 27px 0;
       }
 
       .footer-row {
@@ -502,6 +544,25 @@
 
     }
 
+
+    /* ==================================================
+       VERY SMALL PHONES
+       ================================================== */
+
+    @media (max-width: 430px) {
+
+      h1 {
+        font-size: 3rem;
+
+        line-height: 0.96;
+      }
+
+      .art-rail {
+        height: 190px;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -510,7 +571,7 @@
 
 
   <!-- ==================================================
-       FIXED LEFT ARTWORK
+       NATE'S FIXED CHICKEN DRAWING
        ================================================== -->
 
   <aside class="art-rail" aria-hidden="true">
@@ -524,7 +585,7 @@
 
 
   <!-- ==================================================
-       SCROLLING CONTENT
+       SCROLLING SITE
        ================================================== -->
 
   <div class="content">
@@ -532,9 +593,7 @@
     <main class="page">
 
 
-      <!-- ==================================================
-           INTRO
-           ================================================== -->
+      <!-- INTRO -->
 
       <header>
 
@@ -543,27 +602,24 @@
         </p>
 
         <h1>
-          field notes<br>
-          bakery
+          field notes bakery
         </h1>
 
         <p class="intro">
-          Made by hand, in small batches, with good ingredients
-          and a great deal of care.
+          Created with care by Caryl Yuhas in small batches,
+          with natural, home-grown and locally sourced ingredients.
         </p>
 
       </header>
 
 
-      <!-- ==================================================
-           MAIN PHOTO
-           ================================================== -->
+      <!-- MAIN PHOTO -->
 
       <div class="hero-image">
 
         <img
           src="https://github.com/ckred/field-notes-bakery/blob/main/images/me-piping.png?raw=true"
-          alt="Piping macarons by hand at Field Notes Bakery"
+          alt="Caryl piping macarons by hand at Field Notes Bakery"
         >
 
       </div>
@@ -575,13 +631,13 @@
 
       <section id="current-note">
 
-        <p class="section-label">
+        <h3>
           october field note
-        </p>
+        </h3>
 
-        <h2>
+        <p>
           pickup october 17 + 18
-        </h2>
+        </p>
 
         <p class="drop-location">
           martinsville, new jersey
@@ -591,8 +647,6 @@
         <div class="flavors">
 
 
-          <!-- MUGICHA -->
-
           <div class="flavor">
 
             <div class="flavor-name">
@@ -600,13 +654,11 @@
             </div>
 
             <div class="flavor-note">
-              roasted barley · earthy · nutty
+              roasted barley · earthy · warm
             </div>
 
           </div>
 
-
-          <!-- RASPBERRY -->
 
           <div class="flavor">
 
@@ -621,8 +673,6 @@
           </div>
 
 
-          <!-- BROWN BUTTER PISTACHIO -->
-
           <div class="flavor">
 
             <div class="flavor-name">
@@ -630,10 +680,11 @@
             </div>
 
             <div class="flavor-note">
-              roasted pistachio · brown butter · sea salt
+              rich  · nutty · savory-sweet
             </div>
 
           </div>
+
 
         </div>
 
@@ -656,10 +707,10 @@
 
         <p class="next-note">
 
-          New field notes are released about every two weeks.
+          New field notes are released about every four weeks.
           Follow along on
 
-          <a href="YOUR-INSTAGRAM-LINK">
+          <a href="https://www.instagram.com/fieldnotesbakery">
             Instagram
           </a>
 
@@ -672,7 +723,6 @@
 
       <!-- ==================================================
            ABOUT
-           intentionally no heading
            ================================================== -->
 
       <section>
@@ -717,47 +767,19 @@
 
 
       <!-- ==================================================
-           CUSTOM ORDERS
+           CUSTOM ORDER
            ================================================== -->
 
-      <section>
+      <div class="custom-order">
 
-        <div class="custom">
+        <p>
+          Looking for something specific?
+          <a href="mailto:hello@fieldnotesbakery.com">
+            Request a custom order here.
+          </a>
+        </p>
 
-
-          <div>
-
-            <p class="section-label">
-              something else?
-            </p>
-
-            <h2>
-              Custom orders.
-            </h2>
-
-          </div>
-
-
-          <div>
-
-            <p>
-              Have an occasion, flavor, or quantity in mind?
-              Custom orders are handled personally by email.
-            </p>
-
-            <a
-              class="email"
-              href="mailto:hello@fieldnotesbakery.com"
-            >
-              hello@fieldnotesbakery.com
-            </a>
-
-          </div>
-
-
-        </div>
-
-      </section>
+      </div>
 
 
       <!-- ==================================================
