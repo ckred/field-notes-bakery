@@ -200,6 +200,31 @@
 
 
     /* ==================================================
+       NOVEMBER DROP ANNOUNCEMENT
+       ================================================== */
+
+    .hero-drop {
+      margin: 22px 0 0;
+      color: var(--green);
+      font-size: 0.93rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-drop a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+    }
+
+    .hazelnut-aside {
+      max-width: 555px;
+      margin: -15px 0 26px;
+      color: var(--soft-ink);
+      font-size: 0.98rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* ==================================================
        MAIN PHOTO
        ================================================== */
 
@@ -257,7 +282,7 @@
 
 
     /* ==================================================
-       OCTOBER FIELD NOTE
+       CURRENT FIELD NOTE
        ================================================== */
 
     #current-note > p:first-of-type {
@@ -326,7 +351,7 @@
 
 
     /* ==================================================
-       BETWEEN-DROP NOTE
+       DROP DETAILS
        ================================================== */
 
     .between-drop-title {
@@ -354,12 +379,6 @@
       line-height: 1.6;
     }
 
-    .flavor-coming {
-      margin: 33px 0 0 !important;
-      color: var(--ink) !important;
-      font-size: 1.25rem !important;
-      font-style: italic;
-    }
 
 
     /* ==================================================
@@ -667,6 +686,10 @@
           with natural, home-grown and locally sourced ingredients.
         </p>
 
+        <p class="hero-drop">
+          <a href="#current-note">november drop · orders now open ↓</a>
+        </p>
+
       </header>
 
 
@@ -683,36 +706,59 @@
 
 
       <!-- ==================================================
-           NEXT FIELD NOTE · BETWEEN SEASONAL DROPS
+           NOVEMBER FIELD NOTE · ORDERS OPEN
            ================================================== -->
 
-      <section id="current-note" aria-labelledby="next-drop-title">
+      <section id="current-note" aria-labelledby="november-drop-title">
 
-        <h3>next field note</h3>
+        <h3>field note · november</h3>
 
-        <h2 id="next-drop-title" class="between-drop-title">
-          something is taking shape.
+        <h2 id="november-drop-title" class="between-drop-title">
+          the november drop is here.
         </h2>
 
-        <p class="drop-date">next seasonal box · weekend of november 15</p>
+        <p class="drop-date">orders now open · pickup weekend of november 15</p>
 
         <div class="between-drop-copy">
           <p>
-            The flavors are still coming together, inspired by what's growing,
-            what's in season, and whatever catches my curiosity in the kitchen.
-          </p>
-          <p>
-            A limited batch of bite-sized macarons, made slowly and by hand
-            in Martinsville, New Jersey.
+            A late-autumn collection in three flavors: fruit, flower, and nut.
+            Bite-sized macarons, made slowly and by hand in Martinsville, New Jersey.
           </p>
         </div>
 
-        <p class="flavor-coming">flavors announced soon.</p>
+        <div class="flavors" aria-label="November drop flavors">
+          <div class="flavor">
+            <div class="flavor-name">raspberry</div>
+            <div class="flavor-note">bright · tart · jammy</div>
+          </div>
+          <div class="flavor">
+            <div class="flavor-name">earl grey honey</div>
+            <div class="flavor-note">floral · fragrant · softly sweet</div>
+          </div>
+          <div class="flavor">
+            <div class="flavor-name">toasted hazelnut</div>
+            <div class="flavor-note">toasty · rounded · gently salted</div>
+          </div>
+        </div>
+
+        <p class="box-details">
+          12 bite-sized macarons · 4 of each flavor · $18
+        </p>
+
+        <a
+          class="button"
+          href="https://form.typeform.com/to/tYf3V3WU"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          order the november box ↗
+        </a>
 
         <p class="next-note">
+          limited seasonal batch · local pickup in Martinsville, New Jersey.
           Follow along on
           <a href="https://www.instagram.com/fieldnotesbakery" target="_blank" rel="noopener noreferrer">Instagram</a>
-          for flavor notes and ordering details.
+          for more field notes from the kitchen.
         </p>
 
       </section>
